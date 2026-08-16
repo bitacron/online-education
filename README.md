@@ -4,7 +4,7 @@
 
 | 目录 | 角色 | 默认访问地址 |
 | --- | --- | --- |
-| `Online_Education` | Spring Cloud 微服务后端 | 网关 [http://localhost:8222](http://localhost:8222) |
+| `online-education-server` | Spring Cloud 微服务后端 | 网关 [http://localhost:8222](http://localhost:8222) |
 | `online-education-web-admin` | 讲师 / 运营管理后台 | [http://localhost:9528](http://localhost:9528) |
 | `online-education-web-front` | 学员前台网站 | [http://localhost:3000](http://localhost:3000) |
 
@@ -92,11 +92,11 @@ npm run generate # 导出静态站点
 
 ---
 
-## 后端 `Online_Education`
+## 后端 `online-education-server`
 
 Spring Cloud 微服务。在谷粒学院课程、点播、订单、权限等能力上，增加了文章服务，以及基于 Elasticsearch 的检索；可用 Canal 把 MySQL binlog 同步到 ES。
 
-库表脚本：`Online_Education/online_education.sql`。
+库表脚本：`online-education-server/online_education.sql`。
 
 ### 框架版本
 
@@ -152,7 +152,7 @@ Redis、ES 的主机请改成自己的环境，不要沿用仓库里的内网 IP
 
 **1. 准备中间件**
 
-- 安装并启动 MySQL 5.7，创建库 `online_education`，导入 `Online_Education/online_education.sql`。
+- 安装并启动 MySQL 5.7，创建库 `online_education`，导入 `online-education-server/online_education.sql`。
 - 启动 Nacos（控制台一般为 [http://127.0.0.1:8848/nacos](http://127.0.0.1:8848/nacos)）。
 - 启动 Redis、Elasticsearch；需要看索引时再开 Kibana（部署在Linux中）。
 
@@ -181,7 +181,7 @@ Nacos 在 Windows 本机启动即可，默认注册地址已是 `127.0.0.1:8848`
 **3. 编译并启动微服务**
 
 ```bash
-cd Online_Education
+cd online-education-server
 mvn clean install -DskipTests
 ```
 
